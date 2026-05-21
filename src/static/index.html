@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="admin-controls">
+      <button id="admin-toggle" aria-label="Teacher account">👤</button>
+      <div id="admin-panel" class="hidden" role="dialog" aria-modal="false">
+        <div id="admin-auth-view">
+          <p>Teacher tools are locked.</p>
+          <button id="open-login" type="button">Login</button>
+        </div>
+        <div id="admin-user-view" class="hidden">
+          <p id="admin-user-text"></p>
+          <button id="logout-btn" type="button">Logout</button>
+        </div>
+      </div>
+    </div>
+
     <header>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
@@ -22,7 +36,8 @@
       </section>
 
       <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
+        <h3>Register Student to an Activity</h3>
+        <p id="teacher-only-note" class="info">Teacher login required to manage registrations.</p>
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
@@ -44,6 +59,26 @@
     <footer>
       <p>&copy; 2026 Mergington High School</p>
     </footer>
+
+    <div id="login-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <div class="modal-card">
+        <h3 id="login-title">Teacher Login</h3>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="admin-username">Username</label>
+            <input type="text" id="admin-username" required />
+          </div>
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <input type="password" id="admin-password" required />
+          </div>
+          <div class="modal-actions">
+            <button type="button" id="cancel-login" class="secondary">Cancel</button>
+            <button type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="app.js"></script>
   </body>
